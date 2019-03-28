@@ -17,7 +17,7 @@ This custom layout for hierarchical data is inspired by the CSS box-model and ad
 ## Usage
 
 ```bash
-npm install Boxmodel-Layout-for-D3 --save
+npm install boxmodel-layout-for-d3 --save
 ```
 
 ```js
@@ -35,5 +35,5 @@ Or you can just embed the library via script-tag, but make sure you also include
 
 <script src="<yourpath>/formform.min.js"></script>
 // or just use the unpkg link:
-<script src="https://unpkg.com/Boxmodel-Layout-for-D3@latest/dist/boxmodel-d3.min.js"></script>
+<script src="https://unpkg.com/boxmodel-layout-for-d3@latest/dist/boxmodel-d3.min.js"></script>
 ```
