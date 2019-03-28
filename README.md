@@ -1,4 +1,4 @@
-# Custom CSS-like boxmodel layout for D3,js
+# Custom CSS-like boxmodel layout for D3.js
 
 This custom layout for hierarchical data is inspired by the CSS box-model and adds *margin* and *padding* on all four sides of nested elements. 
 
@@ -6,17 +6,34 @@ This custom layout for hierarchical data is inspired by the CSS box-model and ad
 - Padding is added *inside*, margins *outside* the boundary of boxes. 
 - *Width* and *height* of the boxes is defined by their combined child sizes (width/height plus margins) as well as the padding of the box itself.
 - Empty boxes collapse to their padding, but you can also specify a *minimal* width and height for containers.
-- Elements that are not intended as boxes must set the boolean \`isContainer\` to \`false\` and can have a fixed width and height.
+- Elements that are not intended as boxes must set the boolean `isContainer` to `false` and can have a fixed width and height.
 
-See it in action: 
+## See it in action
+
 - [Introduction and playground (Observable)](https://observablehq.com/@formsandlines/custom-d3-layout-for-css-like-box-model)
 - [More complex demo with flare dataset (Observable)](https://observablehq.com/@formsandlines/custom-boxmodel-layout-demo-with-flare)`
 
-#### Updates:
 
-- Added \`spanHeight\` as optional parameter for nodes to span their whole parent container.
-- Vertical align is now per line (fixes element reordering with \`vAlign:'bottom'\`)
+## Usage
 
-#### ToDo:
+```bash
+npm install Boxmodel-Layout-for-D3 --save
+```
 
-- Initialize some parameters with default values so you don't have to specify every single parameter for each visualization.
+```js
+// ES6:
+import boxmodelD3 from 'boxmodel-d3';
+
+// CommonJS:
+var boxmodelD3 = require('boxmodel-d3');
+```
+
+Or you can just embed the library via script-tag, but make sure you also include [d3.js](https://github.com/d3/d3) as a dependency:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+
+<script src="<yourpath>/formform.min.js"></script>
+// or just use the unpkg link:
+<script src="https://unpkg.com/Boxmodel-Layout-for-D3@latest/dist/boxmodel-d3.min.js"></script>
+```
