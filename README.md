@@ -1,4 +1,4 @@
-# Boxmodel Layout for D3
+# Custom CSS-like boxmodel layout for D3,js
 
 This custom layout for hierarchical data is inspired by the CSS box-model and adds *margin* and *padding* on all four sides of nested elements. 
 
@@ -8,7 +8,9 @@ This custom layout for hierarchical data is inspired by the CSS box-model and ad
 - Empty boxes collapse to their padding, but you can also specify a *minimal* width and height for containers.
 - Elements that are not intended as boxes must set the boolean \`isContainer\` to \`false\` and can have a fixed width and height.
 
-See it in action: [https://observablehq.com/@formsandlines/custom-d3-layout-for-css-like-box-model](https://observablehq.com/@formsandlines/custom-d3-layout-for-css-like-box-model)
+See it in action: 
+- [Introduction and playground (Observable)](https://observablehq.com/@formsandlines/custom-d3-layout-for-css-like-box-model)
+- [More complex demo with flare dataset (Observable)](https://observablehq.com/@formsandlines/custom-boxmodel-layout-demo-with-flare)`
 
 #### Updates:
 
