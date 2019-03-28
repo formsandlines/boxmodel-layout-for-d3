@@ -33,7 +33,7 @@ Or you can just embed the library via script-tag, but make sure you also include
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
 
-<script src="<yourpath>/formform.min.js"></script>
+<script src="<yourpath>/boxmodel-d3.min.js"></script>
 // or just use the unpkg link:
 <script src="https://unpkg.com/boxmodel-layout-for-d3@latest/dist/boxmodel-d3.min.js"></script>
 ```
