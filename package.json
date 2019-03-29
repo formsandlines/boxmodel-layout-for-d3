@@ -1,6 +1,6 @@
 {
   "name": "boxmodel-layout-for-d3",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "This custom layout for hierarchical data is inspired by the CSS box-model and adds margin and padding on all four sides of nested elements.",
   "main": "dist/boxmodel-d3.min.js",
   "unpkg": "dist/boxmodel-d3.min.js",

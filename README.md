@@ -22,10 +22,10 @@ npm install boxmodel-layout-for-d3 --save
 
 ```js
 // ES6:
-import boxmodelD3 from 'boxmodel-d3';
+import boxmodel from 'boxmodel-layout-for-d3';
 
 // CommonJS:
-var boxmodelD3 = require('boxmodel-d3');
+var boxmodel = require('boxmodel-layout-for-d3');
 ```
 
 Or you can just embed the library via script-tag, but make sure you also include [d3.js](https://github.com/d3/d3) as a dependency:
