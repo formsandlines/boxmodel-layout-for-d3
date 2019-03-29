@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
 export default function boxmodel() {
-  // v.1.2.0 | by Peter Hofmann, 03/2019
+  // v.1.2.1 | by Peter Hofmann, 03/2019
   
   let isContainer,
       spanHeight,
@@ -101,8 +101,8 @@ export default function boxmodel() {
       const parentLines = getLines(node.parent);
       const lineIndex = getLineIndex(node, parentLines);
 
-      h -= !edgeMargins(node.parent) && lineIndex === 0 ? 0 : margin(node).top;
-      h -= !edgeMargins(node.parent) && lineIndex === (parentLines.length-1) ? 0 : margin(node).bottom;
+      h -= !edgeMargins(node) && lineIndex === 0 ? 0 : margin(node).top;
+      h -= !edgeMargins(node) && lineIndex === (parentLines.length-1) ? 0 : margin(node).bottom;
       
       // now adjust the line heights accordingly by distributing the excess height
       const heightDiff = h - node.y1;
@@ -133,7 +133,7 @@ export default function boxmodel() {
       if (order === 0 || lineBreak(node)) {
         // x-position 1. children (of line) relative to parent container x + padding
         node.x0 += node.parent.x0 + padding(node.parent).left;
-        if (edgeMargins(node.parent)) node.x0 += margin(node).left;
+        if (edgeMargins(node)) node.x0 += margin(node).left;
       }
       else {
         // all subsequent children can be x-positioned relative to their left neighbour
@@ -163,7 +163,7 @@ export default function boxmodel() {
       case 'top':
         if (node.parent) {
           const lineIndex = getLineIndex(node);
-          node.y0 += !edgeMargins(node.parent) && lineIndex === 0 ? 0 : margin(node).top;
+          node.y0 += !edgeMargins(node) && lineIndex === 0 ? 0 : margin(node).top;
           node.y0 += calcLineShift(node);
         }
         break;
@@ -174,7 +174,7 @@ export default function boxmodel() {
       case 'bottom':
         if (node.parent) {
           const lines = getLines(node.parent), lineIndex = getLineIndex(node, lines);
-          node.y0 -= !edgeMargins(node.parent) && lineIndex === (lines.length-1) ? 0 : margin(node).bottom;
+          node.y0 -= !edgeMargins(node) && lineIndex === (lines.length-1) ? 0 : margin(node).bottom;
           node.y0 += calcLineShift(node, true);
         }
         node.y0 -= h;
@@ -201,10 +201,10 @@ export default function boxmodel() {
       lineWidth += (child.x1 - child.x0);
 
       // add largest of the two margins between children and left outer margin (if edgeMargins true)
-      lineWidth += newLine ? (edgeMargins(node) ? margin(child).left : 0) : 
+      lineWidth += newLine ? (edgeMargins(child) ? margin(child).left : 0) : 
       Math.max(margin(child).left, margin(node.children[i-1]).right);
       // right margin is only added at the end of a line (if edgeMargins true)
-      const marginRight = edgeMargins(node) ? margin(child).right : 0;
+      const marginRight = edgeMargins(child) ? margin(child).right : 0;
       if (lineWidth + marginRight > maxLineWidth(node) || i === node.children.length-1) 
         lineWidth += marginRight;
 
@@ -230,9 +230,9 @@ export default function boxmodel() {
       const childH = child.y1 - child.y0;
       // add vertical margins between children and (if edgeMargins true) outer vertical margins
       // note: collapsing individual vertical margins is too messy and complicated, so I left this out
-      const marginsVert = (!edgeMargins(node) && lineIndex===0 ? 0 : 
+      const marginsVert = (!edgeMargins(child) && lineIndex===0 ? 0 : 
                            margin(child).top) +
-                          (!edgeMargins(node) && lineIndex===(lines.length-1) ? 0 : 
+                          (!edgeMargins(child) && lineIndex===(lines.length-1) ? 0 : 
                            margin(child).bottom);
       // set line height if it surpasses line height of previous childs
       if (childH + marginsVert > lineHeight) lineHeight = childH + marginsVert;
