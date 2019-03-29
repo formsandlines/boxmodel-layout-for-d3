@@ -106,10 +106,8 @@ export default function boxmodel() {
       
       // now adjust the line heights accordingly by distributing the excess height
       const heightDiff = h - node.y1;
-      console.log('y1:'+node.y1 + ' h:'+h+' diff:'+heightDiff);
       if (isContainer(node) && node.children && heightDiff > 0) {
         const lines = getLines(node);
-        console.log(lines);
         
         const excess = heightDiff / lines.length;
         for (const line of lines) {
