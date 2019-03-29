@@ -237,7 +237,7 @@ export default function boxmodel() {
         // set line height if it surpasses line height of previous childs
         if (childH + marginsVert > lineHeight) lineHeight = childH + marginsVert;
       }
-      return lineHeight;
+      return Math.max(lineHeight, minContainerSize(node).height);
     }
     
     // ----------------
